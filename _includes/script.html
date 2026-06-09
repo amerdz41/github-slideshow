@@ -4,13 +4,20 @@
 			// More info about config & dependencies:
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				hash: true,
-				dependencies: [
-					{ src: 'node_modules/reveal.js/plugin/markdown/marked.js' },
-					{ src: 'node_modules/reveal.js/plugin/markdown/markdown.js' },
-					{ src: 'node_modules/reveal.js/plugin/highlight/highlight.js' },
-					{ src: 'node_modules/reveal.js/plugin/notes/notes.js', async: true }
-				]
-			});
+			if ( typeof Reveal === 'undefined' ) {
+				console.error( 'Reveal.js failed to load. Ensure reveal.js is available at the expected path.' );
+			} else {
+				Reveal.initialize({
+					hash: true,
+					dependencies: [
+						{ src: 'node_modules/reveal.js/plugin/markdown/marked.js', callback: function() { if (typeof marked === 'undefined') console.error('marked.js plugin failed to initialize'); } },
+						{ src: 'node_modules/reveal.js/plugin/markdown/markdown.js', callback: function() { if (typeof RevealMarkdown === 'undefined') console.error('markdown.js plugin failed to initialize'); } },
+						{ src: 'node_modules/reveal.js/plugin/highlight/highlight.js', callback: function() { if (typeof hljs === 'undefined') console.error('highlight.js plugin failed to initialize'); } },
+						{ src: 'node_modules/reveal.js/plugin/notes/notes.js', async: true }
+					]
+				});
+				Reveal.addEventListener( 'ready', function( event ) {
+					console.log( 'Reveal.js initialized successfully.' );
+				});
+			}
 		</script>

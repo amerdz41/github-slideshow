@@ -3,4 +3,10 @@
 set -e
 
 bundle exec jekyll build --baseurl "."
+
+if ! command -v htmlproofer >/dev/null 2>&1; then
+  echo "Error: htmlproofer is not installed. Run 'gem install html-proofer' or 'bundle install'." >&2
+  exit 1
+fi
+
 htmlproofer _site/index.html --empty-alt-ignore
