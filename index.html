@@ -8,6 +8,6 @@ layout: presentation
 {% endfor %}
 {% unless site.simple-slideshow %}
 {% if site.overview %}
-<section id="overview" class="step" {% for attr in site.overview-data %} data-{{attr[0]}}="{{attr[1]}}"{% endfor %}></section>
+<section id="overview" class="step"{% include data_attributes.html attrs=site.overview-data %}></section>
 {% endif %}
 {% endunless %}
