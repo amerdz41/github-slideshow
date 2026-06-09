@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html{% if layout.use_theme_class %} class="{% if site.solarized.theme %}{{ site.solarized.theme }}{% else %}dark{% endif %}"{% endif %}>
+<head>
+  {% include head.html %}
+</head>
+<body>
+  <div class="reveal">
+    {{ content }}
+  </div>
+  {% if layout.include_scripts %}{% include script.html %}{% endif %}
+</body>
+</html>
