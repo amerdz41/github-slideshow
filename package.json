@@ -1,0 +1,20 @@
+{
+  "name": "github-slideshow",
+  "version": "1.0.0",
+  "description": "Welcome to **your** repository for your GitHub Learning Lab course. This repository will be used during the different activities that I will be guiding you through. See a word you don't understand? We've included an emoji 📖 next to some key terms. Click on it to see its definition.",
+  "main": "index.js",
+  "devDependencies": {
+    "cheerio": "^1.2.0",
+    "gray-matter": "^4.0.3",
+    "jest": "^30.4.2",
+    "js-yaml": "^4.2.0"
+  },
+  "scripts": {
+    "test": "jest && bats test/scripts/",
+    "test:jest": "jest",
+    "test:bats": "bats test/scripts/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
